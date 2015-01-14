@@ -1,2 +1,2 @@
 # binder.js
-HTML binding data on load document
+<h4>Bind data on document.ready in tag BODY</h4>

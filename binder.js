@@ -1,5 +1,16 @@
 (function(w){
-    var B = {};
+    var B = {
+        dataArr:[
+            
+        ],
+        addValue:function(name, data){
+            
+        },
+        addArrValues: function(){
+            
+        },
+    };
+    
     
     
     

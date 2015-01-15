@@ -14,7 +14,8 @@
     
     function insertValues(name, value) {
         var patternConstructor = "/{{"+name+"}}/";
-        var pattern = new RegExp(patternConstructor, "gi");
+        var pattern = new RegExp(patternConstructor, "gi");//test
+
         var body = d.getElementsByTagName("body")[0];
         //var bodyText = document.getElementsByTagName("body")[0].innerHTML;
         var bodyText = body.innerHTML;

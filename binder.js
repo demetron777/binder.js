@@ -1,4 +1,4 @@
-(function(w, d){
+(function(){
     var $B = {
         dataArr:{},
         addValue:function(name, value){
@@ -20,12 +20,11 @@
     function insertValues(name, value) {
         var patternConstructor = "/{{"+name+"}}/";
         var pattern = new RegExp(patternConstructor, "gi");
-        var body = d.getElementsByTagName("body")[0];
-        //var bodyText = document.getElementsByTagName("body")[0].innerHTML;
+        var body = document.getElementsByTagName("body")[0];
         var bodyText = body.innerHTML;
         bodyLikeText.replace(pattern, value);
         body.innerHTML = bodyText;
     }
     
-    return $B;
-})(window, document);
+    window.$B = $B;
+})();

@@ -24,4 +24,4 @@
     
     
     return B;
-})(windows, document);
+})(window, document);

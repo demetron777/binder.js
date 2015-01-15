@@ -1,5 +1,5 @@
 (function(){
-    var $B = {
+    var binder = {
         dataArr:{},
         addValue:function(name, value){
             this.dataArr[name] = value;
@@ -26,5 +26,6 @@
         body.innerHTML = bodyText;
     }
     
-    window.$B = $B;
+    window.Binder = binder;
+    window.$B = window.Binder;
 })();

@@ -1,8 +1,14 @@
 (function(){
     var binder = {
-        dataArr:{},
-        addValue:function(name, value){
-            this.dataArr[name] = value;
+        dataArrGlob:{},
+        dataArrLoc:{},
+        addValue:function(n, v, id){
+            if (arguments.length == 3) {
+                this.dataArrLoc[id] = { value: v, name: n};
+            }
+            else if(arguments.length == 2) {
+                this.dataArrGlob[n] = v;
+            }
         },
         addArrValues: function(objVal){
             for (var name in objVal) {
@@ -10,8 +16,8 @@
             }
         },
         init: function(){
-            for (var key in this.dataArr) {
-                this.insert(key, this.dataArr[key]);
+            for (var key in this.dataArrGlob) {
+                this.insert(key, this.dataArrGlob[key]);
             }
         },
         insert: insertValues()
@@ -28,4 +34,4 @@
     
     window.Binder = binder;
     window.$B = window.Binder;
-})();
+})(); 

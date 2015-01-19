@@ -33,7 +33,6 @@ addEvent("DOMContentLoaded", document, function(event) {
                     insertValues(key, this.dataArrGlob[key]);
                 }
             },
-            insert: insertValues(),
             printData: function(){
                 console.log("Global data array: ");
                 for (var k in this.dataArrGlob) {

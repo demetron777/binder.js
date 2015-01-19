@@ -20,7 +20,10 @@
                 this.insert(key, this.dataArrGlob[key]);
             }
         },
-        insert: insertValues()
+        insert: insertValues(),
+        //sendHTML: function(ajaxReceiver){
+        //    
+        //} 
     };
     
     function insertValues(name, value) {

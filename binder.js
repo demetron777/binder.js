@@ -27,10 +27,13 @@ addEvent("DOMContentLoaded", document, function(event) {
                 }
             },
             initData: function(){
-                for (var key in this.dataArrGlob) {
-                    insertValues(key, this.dataArrGlob[key]);
+                for (var keyGlob in this.dataArrGlob) {
+                    insertValues(keyGlob, this.dataArrGlob[keyGlob]);
                 }
                 //TODO part for localized function
+                for (var keyLoc in this.dataArrLoc) {
+                        
+                }
             },
             printData: function(){
                 for (var k in this.dataArrGlob) {
@@ -39,7 +42,6 @@ addEvent("DOMContentLoaded", document, function(event) {
                 for (var j in this.dataArrLoc) {
                     console.log( j +" --> "+ this.dataArrLoc[j]);
                 }
-                return true;
             }
             //TODO
             //sendHTML: function(ajaxReceiver){

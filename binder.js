@@ -34,8 +34,11 @@ addEvent("DOMContentLoaded", document, function(event) {
                     insertValuesGlob(keyGlob, this.dataArrGlob[keyGlob]);
                 }
                 //TODO part for localized function
-                for (var keyLoc in this.dataArrLoc) {
-                    
+                for (var idLoc in this.dataArrLoc) {
+                     dataObj = this.dataArrLoc[idLoc];
+                     for(var nameLoc in dataObj){
+                        insertValuesLoc(idLoc, nameLoc, dataObj[nameLoc]);
+                     }
                 }
             },
             printData: function(){
@@ -43,10 +46,10 @@ addEvent("DOMContentLoaded", document, function(event) {
                     console.log( k +" --> "+ this.dataArrGlob[k]);
                 }
                 for (var j in this.dataArrLoc) {
-                    console.log( j );//+" --> "+ this.dataArrLoc[j]["name"]+" : "+this.dataArrLoc[j]["value"]);
+                    console.log("#"+j );
                     var propObj = this.dataArrLoc[j];
                     for (var g in propObj) {
-                        console.log("-- "+g+" : "+propObj[g]);
+                        console.log("  --> "+g+" : "+propObj[g]);
                     }
                 }
             }
@@ -57,10 +60,13 @@ addEvent("DOMContentLoaded", document, function(event) {
         };
         //TODO function localized replace "insertValuesLoc"
         function insertValuesLoc(id, name, value) {
-            
+            var pattern = new RegExp('{{'+name+'}}', "gi");
+            var local = document.getElementById(id);
+            var locText = local.innerHTML;
+            locText = locText.replace(pattern, value);
+            local.innerHTML = locText;
             return true;
         }
-        
         function insertValuesGlob(name, value) {
             var pattern = new RegExp('{{'+name+'}}', "gi");
             var body = document.getElementsByTagName("body")[0];

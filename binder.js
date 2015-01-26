@@ -15,7 +15,10 @@ addEvent("DOMContentLoaded", document, function(event) {
             dataArrLoc:{},
             addValue:function(n, v, id){
                 if (arguments.length == 3) {
-                    this.dataArrLoc[id] = { value: v, name: n};
+                    if(this.dataArrLoc[id] == undefined){
+                        this.dataArrLoc[id] = {};
+                    }
+                    this.dataArrLoc[id][n] = v;
                 }
                 else if(arguments.length == 2) {
                     this.dataArrGlob[n] = v;
@@ -28,11 +31,11 @@ addEvent("DOMContentLoaded", document, function(event) {
             },
             initData: function(){
                 for (var keyGlob in this.dataArrGlob) {
-                    insertValues(keyGlob, this.dataArrGlob[keyGlob]);
+                    insertValuesGlob(keyGlob, this.dataArrGlob[keyGlob]);
                 }
                 //TODO part for localized function
                 for (var keyLoc in this.dataArrLoc) {
-                        
+                    
                 }
             },
             printData: function(){
@@ -40,7 +43,11 @@ addEvent("DOMContentLoaded", document, function(event) {
                     console.log( k +" --> "+ this.dataArrGlob[k]);
                 }
                 for (var j in this.dataArrLoc) {
-                    console.log( j +" --> "+ this.dataArrLoc[j]);
+                    console.log( j );//+" --> "+ this.dataArrLoc[j]["name"]+" : "+this.dataArrLoc[j]["value"]);
+                    var propObj = this.dataArrLoc[j];
+                    for (var g in propObj) {
+                        console.log("-- "+g+" : "+propObj[g]);
+                    }
                 }
             }
             //TODO
@@ -49,8 +56,12 @@ addEvent("DOMContentLoaded", document, function(event) {
             //} 
         };
         //TODO function localized replace "insertValuesLoc"
+        function insertValuesLoc(id, name, value) {
+            
+            return true;
+        }
         
-        function insertValues(name, value) {
+        function insertValuesGlob(name, value) {
             var pattern = new RegExp('{{'+name+'}}', "gi");
             var body = document.getElementsByTagName("body")[0];
             var bodyText = body.innerHTML;

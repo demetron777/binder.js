@@ -54,18 +54,7 @@ addEvent("DOMContentLoaded", document, function(event) {
                   }
              }
          },
-         printData: function(){//type){
-             //for (var k in this.dataArrByBody) {
-             //    console.log( k +" --> "+ this.dataArrByBody[k]);
-             //}
-             //for (var j in this.dataArrById) {
-             //    console.log("#"+j );
-             //    var propObj = this.dataArrById[j];
-             //    for (var g in propObj) {
-             //        console.log("  --> "+g+" : "+propObj[g]);
-             //    }
-             //}
-             //;
+         printData: function(){
              var bindScope = this;
              if (arguments.length > 0 && arguments.length < 2) {
                Print(arguments[0]);
